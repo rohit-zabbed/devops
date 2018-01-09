@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    docker {
-      image 'gradle:jre8-alpine'
+    kubernetes {
+      label 'default'
     }
     
   }
