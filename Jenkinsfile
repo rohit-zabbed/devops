@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'any'
-    }
-    
-  }
+  agent any
   stages {
     stage('Build') {
       agent {
@@ -59,10 +54,10 @@ pipeline {
       }
       steps {
         sh """
-                  docker build -t ${IMAGE} .
-                  docker tag ${IMAGE} ${IMAGE}:${VERSION}
-                  docker push ${IMAGE}:${VERSION}
-                """
+                          docker build -t ${IMAGE} .
+                          docker tag ${IMAGE} ${IMAGE}:${VERSION}
+                          docker push ${IMAGE}:${VERSION}
+                        """
       }
     }
   }
